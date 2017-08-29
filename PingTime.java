@@ -6,10 +6,13 @@ import java.net.InetAddress;
 class PingTime {
 	public static void main (String[] args) {
            Scanner scanner = new Scanner(System.in);
+	   System.out.println("Please Enter Host Ip Address");
+	   String ip = scanner.next();
+	   System.out.println("How many times you want to ping the host ?");
            int n = scanner.nextInt();
            ArrayList<Long> numArray = new ArrayList<Long>();
            for(int i=0 ; i<n ; i++)
-           numArray.add(ping("10.0.0.13")); 
+           numArray.add(ping(ip)); 
            Collections.sort(numArray);
            double median = 0;
 	   if (n % 2 == 0) {
@@ -18,7 +21,7 @@ class PingTime {
  	   else {
 	            median = (double) numArray.get(n/2);
            }
-	   System.out.println(median); 
+	   System.out.println(median+" ms"); 
 	}
        	public static long ping (String entryIpAddress){
             long pingtime = 0;
@@ -28,7 +31,7 @@ class PingTime {
 			if (inetAddress.isReachable(1000)) {
 				Date stop = new Date();
                                 pingtime = stop.getTime() - start.getTime();
-				System.out.println(stop.getTime() - start.getTime());
+				//System.out.println(stop.getTime() - start.getTime());
 			}
                  return pingtime;
 	    }
