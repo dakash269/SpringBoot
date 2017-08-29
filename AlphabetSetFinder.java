@@ -2,7 +2,7 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
-class Q2 {
+class AlphabetSetFinder {
 	public static void main (String[] args) {
              Scanner scanner = new Scanner(System.in);  
              String string = scanner.next();                                //taking input from keyboard
