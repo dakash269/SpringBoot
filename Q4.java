@@ -23,6 +23,7 @@ class Q4
 	            Calendar calendar1 = new GregorianCalendar();
 		    calendar1.setTime(date1);
 		    int year1 = calendar1.get(Calendar.YEAR);   //calculating year of signup-date
+		 if(year2>=year1) 
 	            calendar1.add(GregorianCalendar.YEAR,year2-year1);  //changing signup-date to its anniversary
 	         String s3 = f.format( calendar1.getTime());
 		    Date date3 = f.parse(s3);                 //convert signup-anniversary into date-format
@@ -36,24 +37,29 @@ class Q4
 		    Date date4 = f.parse(s4);              //convert signupdate-30 into date-format
 		    String s5 = f.format( cal2.getTime());
 		    Date date5 = f.parse(s5);              //convert signupdate+30 into date-format
-	  if(date2.compareTo(date4) >= 0 && date2.compareTo(date5) >= 0) System.out.println(s4 + " " + s5);
-		//if current-date is after that 60 days window
-          if(date2.compareTo(date4) > 0 && date2.compareTo(date5) < 0) System.out.println(s4 + " " + s2);
-		//if current-date is between that 60 days window
-	  if(date2.compareTo(date4) <= 0 && date2.compareTo(date5) <= 0) System.out.println("No range");
-		//if current-date is before that 60 days window
+           if(year2>=year1){
+		  if(date2.compareTo(date4) >= 0 && date2.compareTo(date5) >= 0) System.out.println(s4 + " " + s5);
+			//if current-date is after that 60 days window
+		  if(date2.compareTo(date4) > 0 && date2.compareTo(date5) < 0) System.out.println(s4 + " " + s2);
+			//if current-date is between that 60 days window
+		  if(date2.compareTo(date4) <= 0 && date2.compareTo(date5) <= 0) System.out.println("No range");
+			//if current-date is before that 60 days window
+	     }
+	   else
+		   System.out.println("Signup date is in Future");
 	  }
 	}
 }
 /*
 input:
-6
+7
 16-07-2001 27-06-2017
 24-02-2016 24-04-2017
 16-05-2011 16-04-2017
 11-09-2001 11-04-2016
 04-04-2015 04-04-2016
 06-04-2012 15-03-2016
+25-01-2067 26-03-2017
  
 
 output:
@@ -63,6 +69,7 @@ No range
 No range
 05-03-2016 04-04-2016
 07-03-2015 15-03-2015
+Signup date is inFuture
  
 */
 
