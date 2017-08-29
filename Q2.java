@@ -20,3 +20,23 @@ class Q2
                    else { System.out.println("no");}
 	}
 }
+/*test cases:
+1. 
+input:abcdefghijklmnopqrstuvwxyz
+output:yes
+2.
+input:ABCDEFGHIJKLMNOPQRSTUVWXYZ
+output:yes
+3.
+input:abcdefghijklmnopqrstuvwxyzMNOPQRSTUVWXYZ
+output:yes
+4.
+input:abcdefghijklmnopqrstuvw
+output:no
+5.
+input:abcdefghijklmnopqrstuvabcdef
+output:no
+6.
+input:abcdefghijkl+678mnopqrstuvabcdef
+output:no
+*/
