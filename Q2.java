@@ -2,9 +2,8 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Scanner;
-import java.lang.Exception;
 class Q2 {
-	public static void main (String[] args) throws java.lang.Exception {
+	public static void main (String[] args) {
              Scanner scanner = new Scanner(System.in);  
              String string = scanner.next();                                //taking input from keyboard
              Set<Integer> alphabetSet = new HashSet<>();                //Creating new hashset
