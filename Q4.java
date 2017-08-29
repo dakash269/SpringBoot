@@ -24,23 +24,23 @@ class Q4
 		    calendar1.setTime(date1);
 		    int year1 = calendar1.get(Calendar.YEAR);   //calculating year of signup-date
 	            calendar1.add(GregorianCalendar.YEAR,year2-year1);  //changing signup-date to its anniversary
-	            String s3 = f.format( calendar1.getTime());
+	         String s3 = f.format( calendar1.getTime());
 		    Date date3 = f.parse(s3);                 //convert signup-anniversary into date-format
-		            Calendar cal1 = GregorianCalendar.getInstance();
-		            cal1.setTime(date3);
-		            cal1.add( GregorianCalendar.DATE, -30 );   //calculating -30 days ahead date of signup-anniversary    
-		            Calendar cal2 = GregorianCalendar.getInstance();
-		            cal2.setTime(date3);
-		            cal2.add( GregorianCalendar.DATE, 30 );    //calculating +30 days ahead date of signup-anniversary
-		   String s4 = f.format( cal1.getTime());
-		   Date date4 = f.parse(s4);              //convert signupdate-30 into date-format
-		   String s5 = f.format( cal2.getTime());
-		   Date date5 = f.parse(s5);              //convert signupdate+30 into date-format
-			if(date2.compareTo(date4) >= 0 && date2.compareTo(date5) >= 0) System.out.println(s4 + " " + s5);
+		    Calendar cal1 = GregorianCalendar.getInstance();
+		    cal1.setTime(date3);
+		    cal1.add( GregorianCalendar.DATE, -30 );   //calculating -30 days ahead date of signup-anniversary    
+		    Calendar cal2 = GregorianCalendar.getInstance();
+		    cal2.setTime(date3);
+		    cal2.add( GregorianCalendar.DATE, 30 );    //calculating +30 days ahead date of signup-anniversary
+		    String s4 = f.format( cal1.getTime());
+		    Date date4 = f.parse(s4);              //convert signupdate-30 into date-format
+		    String s5 = f.format( cal2.getTime());
+		    Date date5 = f.parse(s5);              //convert signupdate+30 into date-format
+	  if(date2.compareTo(date4) >= 0 && date2.compareTo(date5) >= 0) System.out.println(s4 + " " + s5);
 		//if current-date is after that 60 days window
-			if(date2.compareTo(date4) > 0 && date2.compareTo(date5) < 0) System.out.println(s4 + " " + s2);
+          if(date2.compareTo(date4) > 0 && date2.compareTo(date5) < 0) System.out.println(s4 + " " + s2);
 		//if current-date is between that 60 days window
-		        if(date2.compareTo(date4) <= 0 && date2.compareTo(date5) <= 0) System.out.println("No range");
+	  if(date2.compareTo(date4) <= 0 && date2.compareTo(date5) <= 0) System.out.println("No range");
 		//if current-date is before that 60 days window
 	  }
 	}
