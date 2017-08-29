@@ -22,21 +22,3 @@ class FileFinder {
         }
     }
 }
-/*
-Test cases will depend on your laptop/desktop 
-My test cases are:
-1.
-input: hi
-output:
-/home/zemoso/Pictures/hi
-/home/zemoso/Downloads/hi
-2.
-input:E07
-output:
-/home/zemoso/Downloads/E07
-
-3.
-input:e07
-output:/home/zemoso/Downloads/E07
-*/
-//we can use any regular expression pattern like only jpg file should be searched
