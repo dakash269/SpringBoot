@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;  
 import java.util.Calendar;
 import java.util.GregorianCalendar;
-class Q4 {
+class KYCProblem {
 	public static void main (String[] args) throws java.lang.Exception {
 	  Scanner scanner = new Scanner(System.in);
 	  int n = scanner.nextInt();                   //number of test cases as input
