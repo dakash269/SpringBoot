@@ -1,5 +1,8 @@
-import java.util.*;
-import java.lang.*;
+import java.util.Set;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Scanner;
+import java.lang.Exception;
 class Q2 {
 	public static void main (String[] args) throws java.lang.Exception {
              Scanner scanner = new Scanner(System.in);  
