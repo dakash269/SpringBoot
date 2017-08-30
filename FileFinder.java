@@ -17,7 +17,7 @@ class FileFinder {
 		       if (fileFromList.isDirectory()) {                              //going inside directory  
 		          findFile(regex,fileFromList); 
 		       }
-		       else if (fileFromList.getName().matches(regex)) {      //ignoring cases in file name while searching
+		       else if (fileFromList.getName().matches(regex)) {      // If file name matches regular expression
 		          System.out.println(fileFromList.getAbsolutePath());         //printing absolute path of file
 		       }
            }
