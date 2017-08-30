@@ -49,7 +49,7 @@ class PingTime {
                  InetAddress inetAddress = InetAddress.getByName(entryIpAddress);
                  Date start = new Date();
 		        // Only if ip address is reachable
-			if (inetAddress.isReachable(1000)) {
+			if (inetAddress.isReachable(5000)) {
 				Date stop = new Date();
                                 pingtime = stop.getTime() - start.getTime(); //Calculating pingTime
 			}
