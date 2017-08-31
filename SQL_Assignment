@@ -24,11 +24,11 @@ select count(film_id) from film where film_id in (select FID from film_list wher
 b.
 select  count(distinct FID) from film_list  inner join inventory on (film_list.FID=inventory.film_id and inventory.store_id=2 ) where category='Sci-Fi';
 
+c.
+select sum(amount) from payment inner join rental on (payment.rental_id=rental.rental_id) where rental.inventory_id in (select inventory_id from inventory inner join film_list on (inventory.film_id in (select FID from film_list where category='Animation')));
 
 e.
 select count(film_id) from rental inner join inventory on (inventory.inventory_id = rental.inventory_id) where rental.customer_id=8 and inventory.film_id in (select film_id from film where rating='R');
 
-select film_list.FID,film_list.category,film.rental_duration,film.rental_rate from film_list inner join film on (film_list.FID in (select film_id from film order by (rental_duration*rental_rate) desc)) where FID in(select inventory.film_id from rental inner join inventory on (rental.inventory_id=inventory.inventory_id) where customer_id=2)  ;
 
-select * from inventory inner join film_list on (inventory.film_id=film_list.FID and film_list.category='Animation');
 
