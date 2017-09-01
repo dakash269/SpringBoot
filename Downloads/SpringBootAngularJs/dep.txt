@@ -1,0 +1,19 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building SpringBootAngularJs 0.0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 1.118 s
+[INFO] Finished at: 2017-07-24T00:52:03+05:30
+[INFO] Final Memory: 16M/212M
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project angularjs: Could not resolve dependencies for project com.javasampleapproach.angularjs:angularjs:jar:0.0.1: Failure to find com.javasampleapproach.angularjs:angularjs:jar:0.0.1 in https://repo.maven.apache.org/maven2 was cached in the local repository, resolution will not be reattempted until the update interval of central has elapsed or updates are forced -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException

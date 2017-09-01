@@ -1,0 +1,171 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+	  <title>Spring Boot - Angularjs Example</title>
+	  <meta charset="utf-8"/>
+	  <meta name="viewport" content="width=device-width, initial-scale=1" />
+	  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
+	  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+	  <link rel="stylesheet" type="text/css" media="screen" href="/bootstrap/bootstrap.min.css" />
+	  <link rel="stylesheet" type="text/css" media="screen" href="/stylesheets/board.css" />
+      <link rel="stylesheet" type="text/css" media="screen" href="/font-awesome/css/font-awesome.min.css" />
+        <script src="/js/jquery-3.1.1.min.js"></script>
+        <script src="/bootstrap/bootstrap.min.js"></script>
+          <script src="/js/angular.min.js"></script>
+      <script src="/js/angular-route.min.js"></script>
+    <script src="/js/angular-resource.min.js"></script>
+    <script src="/js/dragdrop.min.js"></script>
+      <script src="/js/app.js"></script>
+      <script src="/js/controller.js"></script>
+</head>
+<body>
+<div ng-app="app1" ng-controller="controller">
+	<div class="col-md-3 col-sm-4 col-xs-4">
+                <div class="note col-sm-12  col-md-12">
+                    <div class="title" >
+                    <input name="title" ng-model="title" class="textDivInp" placeholder="Doing" type="text"/>
+                    </div>
+                    <div id="contentDiv1" class="content1">
+                    <textarea ng-focus="showRest1 = true" ng-model="content1" placeholder="Add a Card"></textarea>
+                    </div>
+                    <div ng-show="showRest1" class="toolbar">
+                    <div class="col-sm-10 col-md-10">
+                    <div align="right" > <button class="done" ng-click="sendDatato1();showRest1=false;">Done</button> </div>
+                    </div>
+                    </div>
+                </div>
+            <div dnd-list="posts1">
+            <div ng-repeat="post in posts1" dnd-draggable="post" dnd-moved="posts1.splice($index, 1);updateData(post.id,post.doing,post.to_do,post.done,event)"  dnd-effect-allowed="move"
+                 dnd-selected="models1.selected = post" ng-class="{'selected': models1.selected === post}" class="col-sm-12 col-md-12">
+                <div class="col-sm-12 col-md-3 eachCard">
+                    <div class="card">
+                            <input ng-model="id" name="id" ng-value="post.id" type="hidden" />
+                           <input ng-model="doing" ng-value="post.doing" type="hidden" /><input ng-model="to_do" ng-value="post.to_do" type="hidden" /><input ng-model="done"  ng-value="post.done" type="hidden" />
+                            <div name="content" ng-model="content" class="content wordWrap" contenteditable="true">{{ post.content}}{{post.doing}}{{post.to_do}}{{post.done}}</div>
+                    </div>
+                    <button class="fa fa-trash fa-lg" ng-click="deleteData(post.id)"></button>
+                    <button class="fa fa-archive fa-lg" ng-click="movetoTo_do(post.id,post.content)"></button>
+                    <button class="fa fa-archive fa-lg" ng-click="movetoDone(post.id,post.content)"></button>
+                </div>
+            </div>
+            </div>
+	</div>
+	<div class="col-md-3 col-sm-4 col-xs-4">
+        <div class="note col-sm-12  col-md-12">
+            <div class="title" >
+                <input name="title" ng-model="title" class="textDivInp" placeholder="To do" type="text"/>
+            </div>
+            <div id="contentDiv2" class="content1">
+                <textarea ng-focus="showRest2 = true" ng-model="content2" placeholder="Add a Card"></textarea>
+            </div>
+            <div ng-show="showRest2" class="toolbar">
+                <div class="col-sm-10 col-md-10">
+                    <div align="right" > <button class="done" ng-click="sendDatato2();showRest2=false;">Done</button> </div>
+                </div>
+            </div>
+        </div>
+        <div dnd-list="posts2">
+        <div ng-repeat="post in posts2" dnd-draggable="post" dnd-moved="posts2.splice($index, 1);updateData(post.id,post.doing,post.to_do,post.done,event)"  dnd-effect-allowed="move"
+             dnd-selected="models2.selected = post" ng-class="{'selected': models2.selected === post}" class="col-sm-12 col-md-12">
+            <div class="col-sm-12 col-md-3 eachCard">
+                <div class="card">
+                    <input ng-model="id" name="id" ng-value="post.id" type="hidden" />
+                    <input ng-model="doing" ng-value="post.doing" type="hidden" /><input ng-model="to_do" ng-value="post.to_do" type="hidden" /><input ng-model="done"  ng-value="post.done" type="hidden" />
+                    <div name="content" ng-model="content" class="content wordWrap" contenteditable="true">{{ post.content}}{{post.doing}}{{post.to_do}}{{post.done}}</div>
+                </div>
+                <button class="fa fa-trash fa-lg" ng-click="deleteData(post.id)"></button>
+                <button class="fa fa-archive fa-lg" ng-click="movetoDoing(post.id,post.content)"></button>
+                <button class="fa fa-archive fa-lg" ng-click="movetoDone(post.id,post.content)"></button>
+            </div>
+        </div>
+        </div>
+	</div>
+	<div class="col-md-3 col-sm-4 col-xs-4">
+        <div class="note col-sm-12  col-md-12">
+            <div class="title" >
+                <input name="title" ng-model="title" class="textDivInp" placeholder="Done" type="text"/>
+            </div>
+            <div id="contentDiv3" class="content1">
+                <textarea ng-focus="showRest3 = true" ng-model="content3" placeholder="Add a Card"></textarea>
+            </div>
+            <div ng-show="showRest3" class="toolbar">
+                <div class="col-sm-10 col-md-10">
+                    <div align="right" > <button class="done" ng-click="sendDatato3();showRest3=false;">Done</button> </div>
+                </div>
+            </div>
+        </div>
+        <div dnd-list="posts3">
+            <div ng-repeat="post in posts3" dnd-draggable="post" dnd-moved="posts3.splice($index, 1);updateData(post.id,post.doing,post.to_do,post.done,event)"  dnd-effect-allowed="move"
+                 dnd-selected="models3.selected = post" ng-class="{'selected': models3.selected === post}" class="col-sm-12 col-md-12">
+                <div class="col-sm-12 col-md-3 eachCard" >
+                    <div class="card">
+                        <input ng-model="id" name="id" ng-value="post.id"  type="hidden" />
+                        <input ng-model="doing" ng-value="post.doing" type="hidden" /><input ng-model="to_do" ng-value="post.to_do" type="hidden" /><input ng-model="done"  ng-value="post.done" type="hidden" />
+                        <div name="content" ng-model="content" class="content wordWrap" contenteditable="true">{{ post.content}}{{post.doing}}{{post.to_do}}{{post.done}}</div>
+                    </div>
+                    <button class="fa fa-trash fa-lg" ng-click="deleteData(post.id)"></button>
+                    <button class="fa fa-archive fa-lg" ng-click="movetoDoing(post.id,post.content)"></button>
+                    <button class="fa fa-archive fa-lg" ng-click="movetoTo_do(post.id,post.content)"></button>
+                </div>
+            </div>
+        </div>
+	</div>
+    <div class="col-md-3 col-sm-4 col-xs-4">
+        <label class="item-input-wrapper" ng-show="!newlist">
+            <input type="text" placeholder="add-list" ng-model="input.value" />
+        </label>
+        <button class="button button-small button-balanced" ng-click="newlist=true" ng-show="!newlist">
+            <i class="glyphicon glyphicon-plus"></i>
+        </button>
+        <div class="note col-sm-12  col-md-12" ng-show="newlist">
+            <div class="title" >
+                <input name="title" ng-model="title" class="textDivInp" placeholder="Backlog" type="text"/>
+            </div>
+            <div id="contentDiv4" class="content1">
+                <textarea ng-focus="showRest4 = true" ng-model="content4" placeholder="Add a Card"></textarea>
+            </div>
+            <div ng-show="showRest4" class="toolbar">
+                <div class="col-sm-10 col-md-10">
+                    <div align="right" > <button class="done" ng-click="sendDatato4();showRest4=false;">Done</button> </div>
+                </div>
+            </div>
+        </div>
+        <div dnd-list="posts4">
+            <div ng-repeat="post in posts4" dnd-draggable="post" dnd-moved="posts4.splice($index, 1);updateData(post.id,post.doing,post.to_do,post.done,event)"  dnd-effect-allowed="move"
+                 dnd-selected="models4.selected = post" ng-class="{'selected': models4.selected === post}" class="col-sm-12 col-md-12">
+                <div class="col-sm-12 col-md-3 eachCard">
+                    <div class="card">
+                        <input ng-model="id" name="id" ng-value="post.id"  type="hidden" />
+                        <input ng-model="doing" ng-value="post.doing" type="hidden" /><input ng-model="to_do" ng-value="post.to_do" type="hidden" /><input ng-model="done"  ng-value="post.done" type="hidden" />
+                        <div name="content" ng-model="content" class="content wordWrap" contenteditable="true">{{ post.content}}{{post.doing}}{{post.to_do}}{{post.done}}</div>
+                    </div>
+                    <button class="fa fa-trash fa-lg" ng-click="deleteData(post.id)"></button>
+                    <button class="fa fa-archive fa-lg" ng-click="movetoDoing(post.id,post.content)"></button>
+                    <button class="fa fa-archive fa-lg" ng-click="movetoTo_do(post.id,post.content)"></button>
+                </div>
+            </div>
+        </div>
+
+</div>
+</div>
+<style>.selected{background-color: white}</style>
+<script type="text/javascript">
+    var modal = document.getElementById('myModal');
+    var btn = document.getElementById("myBtn");
+    var span = document.getElementsByClassName("close")[0];
+    btn.onclick = function() {modal.style.display = "block";};
+    span.onclick = function() {modal.style.display = "none";};
+    window.onclick = function(event) {if (event.target == modal) {modal.style.display = "block";}}
+    $(document).ready(function(){
+        $(".textDivInp").click(function(e){
+            $(".selected").removeClass("selected");
+            $(this).addClass("selected");
+            e.stopPropagation();
+        });
+        $(document).click(function(){
+            $(".selected").removeClass("selected");
+        });
+    });
+</script>
+</body>
+</html>
